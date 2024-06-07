@@ -66,6 +66,8 @@ resource "btp_subaccount_subscription" "identity_instance" {
 # Prepare and setup app: SAP Build Workzone, standard edition
 ###############################################################################################
 # Entitle subaccount for usage of app  destination SAP Build Workzone, standard edition
+
+/*
 resource "btp_subaccount_entitlement" "build_workzone" {
   subaccount_id = data.btp_subaccount.project.id
   service_name  = local.service_name__build_workzone
@@ -80,6 +82,7 @@ resource "btp_subaccount_subscription" "build_workzone" {
   plan_name     = var.service_plan__build_workzone
   depends_on    = [btp_subaccount_entitlement.build_workzone]
 }
+*/
 
 ###############################################################################################
 # Prepare and setup app: SAP Build Apps
@@ -218,7 +221,7 @@ data "btp_subaccount_service_plan" "by_name" {
   subaccount_id = data.btp_subaccount.project.id
   name          = "lite"
   offering_name = "destination"
-  depends_on    = [btp_subaccount_subscription.build_workzone]
+#  depends_on    = [btp_subaccount_subscription.build_workzone]
 }
 
 # Get subaccount data
@@ -264,6 +267,7 @@ resource "btp_subaccount_entitlement" "destination" {
 }
 
 # Assign users to Role Collection: Launchpad_Admin
+/*
 resource "btp_subaccount_role_collection_assignment" "launchpad_admin" {
   for_each             = toset("${var.emergency_admins}")
   subaccount_id        = data.btp_subaccount.project.id
@@ -271,3 +275,4 @@ resource "btp_subaccount_role_collection_assignment" "launchpad_admin" {
   user_name            = each.value
   depends_on           = [btp_subaccount_subscription.build_workzone]
 }
+*/
