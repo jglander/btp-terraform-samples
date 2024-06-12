@@ -1,0 +1,17 @@
+terraform {
+  required_providers {
+    btp = {
+      source  = "SAP/btp"
+      version = "1.4.0"
+    }
+  }
+}
+
+######################################################################
+# Configure BTP provider
+######################################################################
+provider "btp" {
+  idp            = local.custom_idp
+  cli_server_url = var.cli_server_url
+  globalaccount  = var.globalaccount
+}
