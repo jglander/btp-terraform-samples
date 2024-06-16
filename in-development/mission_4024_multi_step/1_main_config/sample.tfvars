@@ -2,13 +2,13 @@
 # Account settings
 #################################
 region          = "eu12"
-subaccount_name = "new-subacc"
+subaccount_name = "jgl-subacc-1306b"
 
 #################################
 # Use case specific configuration
 #################################
-emergency_admins         = ["jane.doe@test.com", "john.doe@test.com"]
-users_BuildAppsAdmin     = ["jane.doe@test.com", "john.doe@test.com"]
-users_BuildAppsDeveloper = ["jane.doe@test.com", "john.doe@test.com"]
-users_RegistryAdmin      = ["jane.doe@test.com", "john.doe@test.com"]
-users_RegistryDeveloper  = ["jane.doe@test.com", "john.doe@test.com"]
+emergency_admins         = ["jens.glander@sap.com"]
+users_BuildAppsAdmin     = ["jens.glander@sap.com"]
+users_BuildAppsDeveloper = ["jens.glander@sap.com"]
+users_RegistryAdmin      = ["jens.glander@sap.com"]
+users_RegistryDeveloper  = ["jens.glander@sap.com"]
