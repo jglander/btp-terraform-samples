@@ -30,7 +30,7 @@ variable "custom_idp" {
 variable "region" {
   type        = string
   description = "The region where the sub account shall be created in."
-  default     = "us10"
+  default     = "eu12"
 }
 
 variable "service_plan__sap_build_apps" {
