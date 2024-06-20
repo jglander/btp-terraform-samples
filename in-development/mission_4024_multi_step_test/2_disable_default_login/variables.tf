@@ -1,22 +1,19 @@
-variable "globalaccount" {
-  type        = string
-  description = "The globalaccount subdomain where the sub account shall be created."
+variable "custom_ias_tenant" {
+    type = string
+}
+
+variable "cf_api_url" {
+    type = string
+}
+
+variable "cf_landscape_labels" {
+    type = list(string)
+}
+
+variable "cf_org" {
+    type = string
 }
 
 variable "subaccount_id" {
-  type        = string
-  description = "The subaccount ID."
-  default     = ""
-}
-
-variable "cli_server_url" {
-  type        = string
-  description = "The BTP CLI server URL."
-  default     = "https://cpcli.cf.eu10.hana.ondemand.com"
-}
-
-variable "custom_idp" {
-  type        = string
-  description = "Defines the custom IDP to be used for the subaccount"
-  default     = ""
+    type = string
 }
