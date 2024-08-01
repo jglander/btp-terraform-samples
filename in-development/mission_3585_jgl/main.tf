@@ -53,14 +53,20 @@ resource "btp_subaccount_service_instance" "cicd_service" {
 # Entitle
 resource "btp_subaccount_entitlement" "sapappstudio" {
   subaccount_id = btp_subaccount.dc_mission.id
-  service_name  = "sapappstudio"
-  plan_name     = "standard-edition"
+
+# TODO: Live/Canary
+  service_name  = "canary-saas" // "sapappstudio"
+  plan_name     = "standard" // "standard-edition"
+
 }
 # Subscribe (depends on subscription of standard-edition)
 resource "btp_subaccount_subscription" "sapappstudio" {
   subaccount_id = btp_subaccount.dc_mission.id
-  app_name      = "sapappstudio"
-  plan_name     = "standard-edition"
+
+# TODO: Live/Canary
+  app_name      = "canary-saas" // "sapappstudio"
+  plan_name     = "standard" // "standard-edition"
+
   depends_on    = [btp_subaccount_entitlement.sapappstudio]
 }
 
