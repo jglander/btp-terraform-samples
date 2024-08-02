@@ -25,3 +25,14 @@ variable "region" {
   description = "The region where the sub account shall be created in."
   default     = "us10"
 }
+
+variable "cf_org_name" {
+  type        = string
+  description = "Name of the Cloud Foundry org."
+  default     = "qas sample - cf_multi_step"
+
+  validation {
+    condition     = can(regex("^.{1,255}$", var.cf_org_name))
+    error_message = "The Cloud Foundry org name must not be empty and not exceed 255 characters."
+  }
+}

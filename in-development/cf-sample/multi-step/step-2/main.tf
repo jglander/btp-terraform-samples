@@ -2,6 +2,6 @@
 # Create space using CF provider
 ######################################################################
 resource "cloudfoundry_space" "dev" {
-  name      = "DEV2"
+  name      = var.cf_space_name
   org       = var.cf_org_id
 }
