@@ -1,0 +1,4 @@
+bas:
+# TODO: Live/Canary
+  service_name  = "canary-saas" // "sapappstudio"
+  plan_name     = "standard" // "standard-edition"
