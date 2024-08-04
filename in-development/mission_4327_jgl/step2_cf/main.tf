@@ -3,7 +3,7 @@
 ######################################################################
 resource "cloudfoundry_space" "dev" {
   name = "DEV"
-  org  = var.cf_org_id
+  org  = var.cf_org
 }
 
 ######################################################################
@@ -13,14 +13,14 @@ resource "cloudfoundry_org_role" "organization_user" {
   for_each = toset(var.cf_org_users)
   username = each.value
   type     = "organization_user"
-  org      = var.cf_org_id
+  org      = var.cf_org
 }
 
 resource "cloudfoundry_org_role" "organization_manager" {
   for_each = toset(var.cf_org_admins)
   username = each.value
   type     = "organization_manager"
-  org      = var.cf_org_id
+  org      = var.cf_org
 }
 
 resource "cloudfoundry_space_role" "space_developer" {

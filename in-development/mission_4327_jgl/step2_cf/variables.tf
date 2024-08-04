@@ -2,11 +2,14 @@ variable "cf_api_url" {
   type = string
 }
 
-variable "cf_landscape_label" {
-  type = string
+#variable "cf_landscape_label" {
+#  type = string
+#}
+variable "cf_landscape_labels" {
+    type = list(string)
 }
 
-variable "cf_org_id" {
+variable "cf_org" {
   type = string
 }
 

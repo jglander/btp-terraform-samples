@@ -37,6 +37,8 @@ variable "cf_landscape_label" {
   description = "The region where the project account shall be created in."
   default     = "us10"
 }
+
+
 ###
 # Entitlements
 ###
