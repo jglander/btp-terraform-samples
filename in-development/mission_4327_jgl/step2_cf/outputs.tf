@@ -2,10 +2,6 @@ output "subaccount_id" {
   value = var.subaccount_id
 }
 
-#output "cf_landscape_label" {
-#  value = var.cf_landscape_label
-#}
-
 output "cf_landscape_labels" {
   value = join(",", var.cf_landscape_labels)
 }

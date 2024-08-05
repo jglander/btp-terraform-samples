@@ -12,7 +12,7 @@ globalaccount   = "775253e0-3e95-4cde-b005-cdc3688cdc2c"
 region          = "eu12"
 
 #subaccount_name = "DCM Goldenpath"
-subaccount_name = "4327-jgl-can-0408bb"
+subaccount_name = "4327-jgl-can-0508aa"
 
 #cf_org_name     = "cf-org-jgl-can-0508a"
 # ------------------------------------------------------------------------------------------------------

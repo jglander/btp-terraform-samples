@@ -31,14 +31,6 @@ variable "cli_server_url" {
 #  default     = ["jane.doe@test.com", "john.doe@test.com"]
 #}
 
-#cf_landscape_label
-variable "cf_landscape_label" {
-  type        = string
-  description = "The region where the project account shall be created in."
-  default     = "us10"
-}
-
-
 ###
 # Entitlements
 ###
