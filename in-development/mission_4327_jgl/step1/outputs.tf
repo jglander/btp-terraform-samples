@@ -13,3 +13,8 @@ output "cf_org" {
 output "subaccount_id" {
     value = btp_subaccount.project.id
 } 
+
+output "sap_launchpad_subscription_url" {
+  value       = btp_subaccount_subscription.build_workzone_subscribe.subscription_url
+  description = "SAP Build Work Zone, standard edition subscription URL."
+}

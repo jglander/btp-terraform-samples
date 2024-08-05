@@ -97,17 +97,26 @@ resource "btp_subaccount_subscription" "bas-subscribe" {
 
   depends_on    = [btp_subaccount_entitlement.bas]
 }
-resource "btp_subaccount_role_collection_assignment" "Business_Application_Studio_Administrator" {
+
+# ------------------------------------------------------------------------------------------------------
+# Assign role collection "Business_Application_Studio_Administrator"
+# ------------------------------------------------------------------------------------------------------
+resource "btp_subaccount_role_collection_assignment" "bas_admins" {
+  for_each             = toset("${var.bas_admins}")
   subaccount_id        = btp_subaccount.project.id
   role_collection_name = "Business_Application_Studio_Administrator"
-  user_name            = data.btp_whoami.me.email
+  user_name            = each.value
   depends_on           = [btp_subaccount_subscription.bas-subscribe]
 }
 
-resource "btp_subaccount_role_collection_assignment" "Business_Application_Studio_Developer" {
+# ------------------------------------------------------------------------------------------------------
+# Assign role collection "Business_Application_Studio_Developer"
+# ------------------------------------------------------------------------------------------------------
+resource "btp_subaccount_role_collection_assignment" "bas_developer" {
+  for_each             = toset("${var.bas_developers}")
   subaccount_id        = btp_subaccount.project.id
   role_collection_name = "Business_Application_Studio_Developer"
-  user_name            = data.btp_whoami.me.email
+  user_name            = each.value
   depends_on           = [btp_subaccount_subscription.bas-subscribe]
 }
 
@@ -131,12 +140,18 @@ resource "btp_subaccount_subscription" "build_workzone_subscribe" {
   plan_name     = "standard"
   depends_on    = [btp_subaccount_entitlement.build_workzone]
 }
+# ------------------------------------------------------------------------------------------------------
+# Assign role collection "Launchpad_Admin"
+# ------------------------------------------------------------------------------------------------------
 resource "btp_subaccount_role_collection_assignment" "launchpad_admin" {
+  for_each             = toset("${var.launchpad_admins}")
   subaccount_id        = btp_subaccount.project.id
   role_collection_name = "Launchpad_Admin"
-  user_name            = data.btp_whoami.me.email
+  user_name            = each.value
   depends_on           = [btp_subaccount_subscription.build_workzone_subscribe]
 }
+
+
 ######################################################################
 # Create HANA entitlement subscription
 ######################################################################
