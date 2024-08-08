@@ -1,6 +1,6 @@
 locals {
-  bas_admins = var.runWithoutOptionalServiceDependencies == true ? [] : var.bas_admins
-  bas_developers = var.runWithoutOptionalServiceDependencies == true ? [] : var.bas_developers
+  bas_admins = var.use_optional_resources == true ? var.bas_admins : []
+  bas_developers = var.use_optional_resources == true ? var.bas_developers : []
 }
 
 # ------------------------------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ data "btp_subaccount" "project" {
 # ------------------------------------------------------------------------------------------------------
 # Entitle
 resource "btp_subaccount_entitlement" "sapappstudio" {
-  count = var.runWithoutOptionalServiceDependencies == true ? 0 : 1
+  count = var.use_optional_resources == true ? 1 : 0
   subaccount_id = data.btp_subaccount.project.id
 
 # TODO: Trial // Canary, Live
@@ -43,7 +43,7 @@ resource "btp_subaccount_entitlement" "sapappstudio" {
 
 # Subscribe (depends on subscription of standard-edition)
 resource "btp_subaccount_subscription" "sapappstudio" {
-  count = var.runWithoutOptionalServiceDependencies == true ? 0 : 1
+  count = var.use_optional_resources == true ? 1 : 0
   subaccount_id = data.btp_subaccount.project.id
 
 # TODO: Trial // Canary, Live

@@ -1,8 +1,8 @@
 
-variable "runWithoutOptionalServiceDependencies" {
+variable "use_optional_resources" {
   type        = bool
-  description = "With this parameter it is possible to decide if QAS TF script runs with or w/o all optional dependencies"
-  default     = true 
+  description = "With this parameter it is possible to decide if QAS TF script runs with or w/o all optional resources"
+  default     = false
 }
 
 variable "globalaccount" {
